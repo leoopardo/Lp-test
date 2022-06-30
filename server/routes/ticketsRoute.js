@@ -8,6 +8,7 @@ router.post("/new", async (req, res) =>{
         const newTicket = await TicketModel.create({
             email: req.body.email,
             name: req.body.name,
+            title: req.body.title,
             ticket: req.body.ticket
         });
         res.status(200).json(newTicket)
@@ -32,6 +33,17 @@ router.get("/get", async (req, res) =>{
 router.get("/get/:email", async (req, res) =>{
     try{
         const allTickets = await TicketModel.find({email: req.params.email});
+        return res.status(200).json(allTickets)
+    } catch(err){
+        console.log(err)
+        res.status(500).json(err)
+    }
+})
+
+//Read a ticket by email
+router.get("/get/:id", async (req, res) =>{
+    try{
+        const allTickets = await TicketModel.find({email: req.params.id});
         return res.status(200).json(allTickets)
     } catch(err){
         console.log(err)

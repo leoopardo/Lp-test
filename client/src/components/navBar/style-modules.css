@@ -1,0 +1,10 @@
+.NavBar{
+   height: 147px; 
+}
+.Logo{
+    height: 43px;
+    width: 200px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}

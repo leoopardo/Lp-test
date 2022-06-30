@@ -4,6 +4,7 @@ const ticketSchema = new Schema(
     {
     email: {type: String, require: true, trim: true, match: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/},
     name: {type: String, require: true, trim: true},
+    title: {type: String, require: true, maxLength: 100},
     ticket: {type: String, require: true, maxLength: 400},
     answers: [
         {email: {type: String, require: true, trim: true},

@@ -1,0 +1,44 @@
+.tickets{
+    display: flex;
+    align-items: center;
+    background-color: #013c4e;
+    min-height: 500px;
+}
+
+.allTickets{
+    margin-left: 15px;
+    min-height: 480px;
+    width: 500px;
+    background-color: aliceblue;   
+}
+
+.links{
+    color:antiquewhite;
+    width: 500px;
+    height: 480px;
+}
+
+h1{
+   text-align: center;
+}
+
+.single-ticket{
+    padding: 10px;
+    border: 0.5px solid;
+}
+
+.single-ticket:hover{
+    background-color:rgba(230, 230, 230, 0.815);
+}
+.edit-img{
+    height: 20px;
+}
+.edit-button{
+    
+    height: 25px;
+}
+.edit-link{
+    margin-left: 100px;
+    max-width: 20px;
+    height: 25px;
+}
