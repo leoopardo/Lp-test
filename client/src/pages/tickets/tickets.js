@@ -1,30 +1,70 @@
 import { useState, useEffect } from "react";
 import { api } from "../../api/api";
-import { feshDesk } from "../../api/freshDesk";
 import {Link} from "react-router-dom"
 import "./style-modules.css"
 import edit from "../../img/edit.png"
+import axios from "axios";
 export function Tickets() {
-    const [ticket, setTicket] = useState([])
-    const [freshDesk, setFreshDesk] = useState([])
+    //data base state
+    const [ticket, setTicket] = useState([]);
+    //origin freshDesk state
+    const [freshDesk, setFreshDesk] = useState([]);
     
-    console.log(freshDesk)
+    //get tickets from dataBase
     useEffect(() =>{
-        async function getTickets(){
-            const response = await api.get("http://localhost:4000/ticket/get")
-            setTicket(response.data)
-        }
-        getTickets()
-    }, [])
+        try{
+            async function getTickets(){
+                const response = await api.get("http://localhost:4000/ticket/get");
+                setTicket(response.data);
+            }
+            getTickets();
 
-    useEffect(() =>{
-        async function getTickets(){
-            const response = await feshDesk.get()
-            setFreshDesk(response.data)
+        } catch(err){
+            console.log(err);
         }
-        getTickets()
-    }, [])
+
+    }, []);
+    console.log(ticket);
+
+    //get tickets from origin freshDesk
+    useEffect(() =>{
+        try{
+            async function getTickets(){
+                const response = await axios.get("https://loupendemo.freshdesk.com/api/v2/tickets", {
+                    headers: {
+                        Authorization: "NqkNg2tywkOjFqEVzu7E",   
+                    }
+                })
+                setFreshDesk(response.data);
+            }
+            getTickets();
+            
+        } catch(err){
+            console.log(err);
+        }
+        
+    }, []);
+
+    //Post the freshDesks tickets in the data base
+    async function freshToDataBasePost(){
+        try{
+            for(let i = 0; i <freshDesk.length; i++){
+                if((freshDesk[i].id > 22226) && (freshDesk[i].id < 22286)){
+                    await axios.post("/ticket/new", {
+                        "email": freshDesk[i].email,
+                        "name": freshDesk[i].name,
+                        "title": freshDesk[i].title,
+                        "ticket": freshDesk[i].ticket
+                    });
+                };
+            };
+            window.location.reload()
+        } catch(err){
+            console.log(err);
+        };
+    };
     console.log(freshDesk)
+
     return ( 
         <section className="tickets">
             <div className="allTickets">
@@ -32,26 +72,20 @@ export function Tickets() {
                 <hr/>
                 {ticket.map((currentTicket) =>{
                     return(
-                        <article className="single-ticket">
-                            <h5>Titulo: {currentTicket.title}</h5>
-                            <small>Autor: {currentTicket.name}</small>
-                            <p>{currentTicket.ticket}</p>
-                        
-                            <Link to={`/edit/${currentTicket._id}`} ><button className="edit-button"><img src={edit} alt="edit" className="edit-img"/></button></Link>
-                            <button onClick={
-                                async function Delete(){
-                                    await api.delete(`http://localhost:4000/ticket/delete/${currentTicket._id}`)
-                                    }
-                                }>
-                            Delete
-                            </button>
-                        </article>
+                        <Link to={`/ticket/${currentTicket._id}`} style={{textDecoration: "none", color: "black"}}>
+                            <article className="single-ticket">
+                                <h5>{currentTicket.title}</h5>
+                                <small>Autor: {currentTicket.name}</small>
+                            </article>
+                        </Link>
+
                     )
                 })}
             </div>
             <div className="links">
                 <h1>Loupen Tickets</h1>
-                <article>Create a ticket</article>
+                <Link to="/new-ticket" className="create-a-ticket"><h3 className="create-a-ticket">New ticket</h3></Link>
+                <button onClick={freshToDataBasePost} className="update-and-import">Uptade and import tickets</button>
             </div>
             
         </section>

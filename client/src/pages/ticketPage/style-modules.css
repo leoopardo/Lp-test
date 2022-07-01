@@ -1,0 +1,20 @@
+.ticket-box{
+    height: 450px;
+    width: 800px;
+    background-color: rgb(255, 250, 244);
+}
+
+.ticket-box > p, small{
+    margin-left: 10%;
+    margin-right: 30%;
+}
+
+.ticket-box > hr, h1{
+    margin: 10px;
+    color:#013c4e;
+}
+.ticket-buttons{
+    width: 800px;
+    display: flex;
+    justify-content: center;
+}

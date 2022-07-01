@@ -1,11 +1,15 @@
 .tickets{
     display: flex;
     align-items: center;
+    justify-content: center;
     background-color: #013c4e;
     min-height: 500px;
 }
 
-.allTickets{
+.allTickets{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-left: 15px;
     min-height: 480px;
     width: 500px;
@@ -23,12 +27,17 @@ h1{
 }
 
 .single-ticket{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
     padding: 10px;
+    width: 480px;
     border: 0.5px solid;
 }
 
 .single-ticket:hover{
-    background-color:rgba(230, 230, 230, 0.815);
+    background-color:rgb(145, 145, 145);
 }
 .edit-img{
     height: 20px;
@@ -41,4 +50,31 @@ h1{
     margin-left: 100px;
     max-width: 20px;
     height: 25px;
+}
+.create-a-ticket{
+    font-weight: 600;
+    font-size: 30px;
+    margin-top: 50px;
+    text-decoration: none;
+    color: antiquewhite;
+    text-align: center;
+}
+
+.create-a-ticket:hover{
+    color: rgb(153, 10, 10);
+}
+
+.update-and-import{
+    margin-left: 20%;
+    font-size: 25px;
+    margin-top: 20px;
+    border: 0;
+    padding: 3px;
+    background-color: #013c4e;
+    color: antiquewhite;
+    font-weight: 600;
+}
+.update-and-import:hover{
+    color: rgb(153, 10, 10);
+    
 }

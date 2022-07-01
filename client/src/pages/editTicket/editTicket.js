@@ -1,10 +1,11 @@
 import "./style-modules.css"
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams} from "react-router-dom";
 import { api } from "../../api/api";
-export function NewTicket() {
+export function EditTicket() {
+    const params = useParams()
     const navigate = useNavigate()
-    const [ticket, setTicket] = useState({
+    const [editedTicket, setEditedTicket] = useState({
         name: "",
         email: "",
         title: "",
@@ -12,19 +13,34 @@ export function NewTicket() {
     })
     //Changes of inputs
     function handleChange(e){
-        setTicket({...ticket, [e.target.name]: e.target.value})
-        console.log(ticket)
+        setEditedTicket({...editedTicket, [e.target.name]: e.target.value})
+        console.log(editedTicket)
     }
-    //Post ticket on data base
+    //Update ticket on data base
     async function handleSubmit(){
         try{
-            api.post("/ticket/new", {...ticket})
+            api.patch(`/ticket/update/${params.id}`, {...editedTicket})
             setTimeout(navigate("/"), 1000)
             
         } catch(err){
             console.log(err)
         }
     }
+    useEffect(() =>{
+        async function getTicket(){
+            try{
+                const response = await api.get(`/ticket/getById/${params.id}`)
+                setEditedTicket(
+                {name: response.data.name,
+                email: response.data.email,
+                title: response.data.title,
+                ticket: response.data.ticket,})
+            } catch(err){
+                console.log(err);
+            }
+        }
+        getTicket()
+    },[params.id])
     return ( 
     <section className="new-ticket">
         <section className="form-section">
@@ -33,15 +49,14 @@ export function NewTicket() {
                 <input 
                     placeholder="email"
                     name="email"
-                    value={ticket.email}
-                    onChange={handleChange}
+                    value={editedTicket.email}
                     className="input"
                 />
                 <label htmlFor="name" className="input-label">Full Name</label>
                 <input 
                     placeholder="Your Name"
                     name="name"
-                    value={ticket.name}
+                    value={editedTicket.name}
                     onChange={handleChange}
                     className="input"
                 />
@@ -49,7 +64,7 @@ export function NewTicket() {
                 <input 
                     placeholder="Ticket Title"
                     name="title"
-                    value={ticket.title}
+                    value={editedTicket.title}
                     onChange={handleChange}
                     className="input"
                 />
@@ -57,7 +72,7 @@ export function NewTicket() {
                 <input 
                     placeholder="Ticket"
                     name="ticket"
-                    value={ticket.ticket}
+                    value={editedTicket.ticket}
                     onChange={handleChange}
                     className="input-ticket"
                 />
@@ -68,4 +83,5 @@ export function NewTicket() {
     </section> 
     );
 }
+
 
