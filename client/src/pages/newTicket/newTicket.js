@@ -27,6 +27,7 @@ export function NewTicket() {
     }
     return ( 
     <section className="new-ticket">
+        <h2> Create a new Ticket</h2>
         <section className="form-section">
             <form onSubmit={handleSubmit} className="form-section" >
             <label htmlFor="email" className="input-label">Email</label>

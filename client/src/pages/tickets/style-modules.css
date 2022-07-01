@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     background-color: #013c4e;
-    min-height: 500px;
+    min-height: 700px;
 }
 
 .allTickets{ 
@@ -11,7 +11,7 @@
     flex-direction: column;
     align-items: center;
     margin-left: 15px;
-    min-height: 480px;
+    min-height: 620px;
     width: 500px;
     background-color: aliceblue;   
 }

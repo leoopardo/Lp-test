@@ -1,6 +1,10 @@
 .ticket-box{
-    height: 450px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 600px;
     width: 800px;
+    border-radius: 10px;
     background-color: rgb(255, 250, 244);
 }
 

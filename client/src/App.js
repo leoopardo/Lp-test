@@ -5,6 +5,7 @@ import { NavBar } from './components/navBar/navBar';
 import { NewTicket } from './pages/newTicket/newTicket';
 import { EditTicket } from './pages/editTicket/editTicket';
 import { TicketPage } from './pages/ticketPage/ticketPage';
+import { Footer } from './components/footer/footer';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/edit/:id" element={<EditTicket/>}/>
         <Route path="/ticket/:id" element={<TicketPage/>}/>
       </Routes>
+      <Footer/>
     </BrowserRouter>
     </div>
   );

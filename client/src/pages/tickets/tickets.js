@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { api } from "../../api/api";
 import {Link} from "react-router-dom"
 import "./style-modules.css"
-import edit from "../../img/edit.png"
 import axios from "axios";
 export function Tickets() {
     //data base state
