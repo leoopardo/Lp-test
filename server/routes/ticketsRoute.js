@@ -8,8 +8,8 @@ router.post("/new", async (req, res) =>{
         const newTicket = await TicketModel.create({
             email: req.body.email,
             name: req.body.name,
-            title: req.body.title,
-            ticket: req.body.ticket
+            subject: req.body.subject,
+            description: req.body.description
         });
         res.status(200).json(newTicket)
     }catch(err){

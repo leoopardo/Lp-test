@@ -2,15 +2,10 @@ const {Schema, model, default: mongoose} = require("mongoose");
 
 const ticketSchema = new Schema(
     {
-    email: {type: String, require: true, trim: true, match: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/},
+    email: [{type: String, require: true, trim: true}],
     name: {type: String, require: true, trim: true},
-    title: {type: String, require: true, maxLength: 100},
-    ticket: {type: String, require: true, maxLength: 400},
-    answers: [
-        {email: {type: String, require: true, trim: true},
-        name: {type: String, require: true, trim: true},
-        ticket: {type: String, require: true, maxLength: 400}}
-    ]
+    subject: {type: String, require: true, maxLength: 100},
+    description: {type: String, require: true, maxLength: 400},
     }, 
     {timestamps: true}
     )

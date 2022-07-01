@@ -7,8 +7,8 @@ export function NewTicket() {
     const [ticket, setTicket] = useState({
         name: "",
         email: "",
-        title: "",
-        ticket: "",
+        subject: "",
+        description: "",
     })
     //Changes of inputs
     function handleChange(e){
@@ -49,16 +49,16 @@ export function NewTicket() {
                 <label htmlFor="tile" className="input-label">Ticket Title</label>
                 <input 
                     placeholder="Ticket Title"
-                    name="title"
-                    value={ticket.title}
+                    name="subject"
+                    value={ticket.subject}
                     onChange={handleChange}
                     className="input"
                 />
-                <label htmlFor="ticket" className="input-label">How can us help you?</label>
+                <label htmlFor="description" className="input-label">How can us help you?</label>
                 <input 
                     placeholder="Ticket"
-                    name="ticket"
-                    value={ticket.ticket}
+                    name="description"
+                    value={ticket.description}
                     onChange={handleChange}
                     className="input-ticket"
                 />

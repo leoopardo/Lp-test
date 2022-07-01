@@ -35,11 +35,11 @@ export function TicketPage() {
     return ( 
         <section className="tickets">
             <div className="ticket-box">
-                <h1>{ticket.title}</h1>
+                <h1>{ticket.subject}</h1>
                 <p>Created by: {ticket.name}<small>{ticket.email}</small></p>
                 <small>Modified on: {Date(ticket.updatedAt)}</small>
                 <hr/>
-                <p>{ticket.ticket}</p>
+                <p>{ticket.description}</p>
                 <hr/>
                 <div className="ticket-buttons">
                   <button onClick={handleDelete}>Delete</button>

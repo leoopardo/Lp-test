@@ -8,8 +8,8 @@ export function EditTicket() {
     const [editedTicket, setEditedTicket] = useState({
         name: "",
         email: "",
-        title: "",
-        ticket: "",
+        subject: "",
+        description: "",
     })
     //Changes of inputs
     function handleChange(e){
@@ -50,6 +50,7 @@ export function EditTicket() {
                     placeholder="email"
                     name="email"
                     value={editedTicket.email}
+                    onChange={handleChange}
                     className="input"
                 />
                 <label htmlFor="name" className="input-label">Full Name</label>
@@ -60,19 +61,19 @@ export function EditTicket() {
                     onChange={handleChange}
                     className="input"
                 />
-                <label htmlFor="tile" className="input-label">Ticket Title</label>
+                <label htmlFor="subject" className="input-label">Ticket Title</label>
                 <input 
                     placeholder="Ticket Title"
-                    name="title"
-                    value={editedTicket.title}
+                    name="subject"
+                    value={editedTicket.subject}
                     onChange={handleChange}
                     className="input"
                 />
-                <label htmlFor="ticket" className="input-label">How can us help you?</label>
+                <label htmlFor="description" className="input-label">How can us help you?</label>
                 <input 
                     placeholder="Ticket"
-                    name="ticket"
-                    value={editedTicket.ticket}
+                    name="description"
+                    value={editedTicket.description}
                     onChange={handleChange}
                     className="input-ticket"
                 />
