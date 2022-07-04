@@ -7,7 +7,7 @@
 <p>$ npm run dev </p>
 <p>mantenha o terminal do servidor aberdo e funcionando</p>
 
-## Client (Front-end)
+<h2> Client (Front-end)</h2>
 ### Para rodar o front-end, abra a pasta client com o outro terminal e use os comandos a seguir:
 <p>$ npm install</p>
 <p>$ npm start</p>
