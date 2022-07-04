@@ -50,7 +50,7 @@ export function TicketPage() {
     
     console.log(ticket)
     return ( 
-        <section className="tickets">
+        <section className="ticket">
             <div className="ticket-box">
                 <h1>{ticket.subject}</h1>
                 <p>Created by: {ticket.name}<small>{ticket.email}</small></p>

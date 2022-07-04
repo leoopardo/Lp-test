@@ -7,7 +7,13 @@
     border-radius: 10px;
     background-color: rgb(255, 250, 244);
 }
-
+.ticket{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #013c4e;
+    min-height: 700px;
+}
 .ticket-box > p, small{
     margin-left: 10%;
     margin-right: 30%;

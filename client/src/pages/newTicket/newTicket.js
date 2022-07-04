@@ -34,7 +34,7 @@ export function NewTicket() {
             <form onSubmit={handleSubmit} className="form-section" >
             <label htmlFor="email" className="input-label">Email</label>
                 <input 
-                    placeholder="email"
+                    placeholder="Email"
                     name="email"
                     value={ticket.email}
                     onChange={handleChange}
@@ -58,7 +58,7 @@ export function NewTicket() {
                 />
                 <label htmlFor="description" className="input-label">How can us help you?</label>
                 <input 
-                    placeholder="Ticket"
+                    placeholder="Description"
                     name="description"
                     value={ticket.description}
                     onChange={handleChange}

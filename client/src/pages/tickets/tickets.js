@@ -75,7 +75,7 @@ export function Tickets() {
                         <Link to={`/ticket/${currentTicket._id}`} style={{textDecoration: "none", color: "black"}}>
                             <article className="single-ticket">
                                 <h5>{currentTicket.subject}</h5>
-                                <small>ticket number: {currentTicket.name}</small>
+                                <small>Autor: {currentTicket.name}</small>
                             </article>
                         </Link>
 

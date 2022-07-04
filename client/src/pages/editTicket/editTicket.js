@@ -1,4 +1,3 @@
-import "./style-modules.css"
 import { useState, useEffect } from "react";
 import { useNavigate, useParams} from "react-router-dom";
 import { api } from "../../api/api";
@@ -47,7 +46,7 @@ export function EditTicket() {
             <form onSubmit={handleSubmit} className="form-section" >
             <label htmlFor="email" className="input-label">Email</label>
                 <input 
-                    placeholder="email"
+                    placeholder="Email"
                     name="email"
                     value={editedTicket.email}
                     onChange={handleChange}
@@ -71,7 +70,7 @@ export function EditTicket() {
                 />
                 <label htmlFor="description" className="input-label">How can us help you?</label>
                 <input 
-                    placeholder="Ticket"
+                    placeholder="Description"
                     name="description"
                     value={editedTicket.description}
                     onChange={handleChange}

@@ -1,6 +1,5 @@
 .tickets{
     display: flex;
-    align-items: center;
     justify-content: center;
     background-color: #013c4e;
     min-height: 700px;
@@ -37,7 +36,8 @@ h1{
 }
 
 .single-ticket:hover{
-    background-color:rgb(145, 145, 145);
+    background-color:#013c4e;
+    color:aliceblue;
 }
 .edit-img{
     height: 20px;
