@@ -30,17 +30,6 @@ router.get("/get", async (req, res) =>{
     }
 })
 
-//Read a ticket by email
-router.get("/get/:email", async (req, res) =>{
-    try{
-        const allTickets = await TicketModel.find({email: req.params.email});
-        return res.status(200).json(allTickets)
-    } catch(err){
-        console.log(err)
-        res.status(500).json(err)
-    }
-})
-
 //Read a ticket by id
 router.get("/getById/:id", async (req, res) =>{
     try{
