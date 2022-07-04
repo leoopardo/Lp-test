@@ -1,7 +1,7 @@
 <h1> Loupen-test</h1>
 ### baixe o aqruivo zip de lp-test
 
-<h2 style={color: "red"}> Server (back-end)</h2>
+<h2 color="red"> Server (back-end)</h2>
 ### Para rodar o back-end, abra a pasta server no seu terminal e use os comandos a seguir:
 <p>$ npm install</p>
 <p>$ npm run dev </p>
