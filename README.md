@@ -1,5 +1,5 @@
 <h1> Loupen-test</h1>
-<p> baixe o aqruivo zip de lp-test</p>
+<p> baixe o arquivo .zip de lp-test</p>
 
 <h2> Server (back-end)</h2>
 <h4> Para rodar o back-end, abra a pasta server no seu terminal e use os comandos a seguir:</h4>
