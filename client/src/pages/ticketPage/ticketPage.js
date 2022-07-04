@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import edit from "../../img/edit.png"
+import axios from "axios";
 import "./style-modules.css"
 import { api } from "../../api/api";
 
@@ -31,6 +32,22 @@ export function TicketPage() {
             console.log(err)
         }
     }
+    //post tickets to destiny freshDesk
+    function handlePostOnFreshDesk(){
+        axios.post("https://loupen-dev.freshdesk.com/api/v2/tickets", {
+            email: ticket.email,
+            subject: ticket.subject,
+            description: ticket.description
+    }, {
+            
+                    headers: {
+                        Authorization: "Basic TTVIeXYxWWJrajhpd0tjQU1Mbmk6WA",   
+                    }
+                });
+                window.alert("posted")
+                navigate("/")
+    }
+    
     console.log(ticket)
     return ( 
         <section className="tickets">
@@ -42,8 +59,9 @@ export function TicketPage() {
                 <p>{ticket.description}</p>
                 <hr/>
                 <div className="ticket-buttons">
-                  <button onClick={handleDelete}>Delete</button>
-                  <Link to={`/edit/${ticket._id}`} ><button className="edit-button"><img src={edit} alt="edit" className="edit-img"/></button></Link>  
+                  <button onClick={handleDelete} className="delete-button">Delete</button>
+                  <Link to={`/edit/${ticket._id}`} ><button className="edit-button"><img src={edit} alt="edit" className="edit-img"/></button></Link> 
+                  <button onClick={handlePostOnFreshDesk} className="post-button">Send ticket to FreshDesk</button> 
                 </div>
                 
 

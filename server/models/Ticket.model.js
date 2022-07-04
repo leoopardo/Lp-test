@@ -6,6 +6,7 @@ const ticketSchema = new Schema(
     name: {type: String, require: true, trim: true},
     subject: {type: String, require: true, maxLength: 100},
     description: {type: String, require: true, maxLength: 400},
+    id: {type: Number}
     }, 
     {timestamps: true}
     )

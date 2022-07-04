@@ -4,12 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
 export function NewTicket() {
     const navigate = useNavigate()
+    
     const [ticket, setTicket] = useState({
         name: "",
         email: "",
         subject: "",
-        description: "",
-    })
+        description: ""
+    });
+
     //Changes of inputs
     function handleChange(e){
         setTicket({...ticket, [e.target.name]: e.target.value})

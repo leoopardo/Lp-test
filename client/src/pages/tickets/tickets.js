@@ -45,39 +45,25 @@ export function Tickets() {
     }, []);
 
     //Post the freshDesks tickets in the data base
-    function freshToDataBasePost(){
-            freshDesk.map((c) =>{
-                if((c.id > 22226) && (c.id < 22287)){
-                    if(ticket.includes(c.id.toString()) === false){
-                         api.post("/ticket/new", {
-                        "email": c.cc_emails,
-                        "name": c.subject,
-                        "subject": c.id,
-                        "description": c.id
-                    });         
-                    }         
-                };
-            })
-                
-        
+    async function freshToDataBasePost(){
+        for(let i = 0; i < freshDesk.length; i++){
+            if(ticket.some(e => e.id === freshDesk[i].id)){
+                console.log('tem') 
+                continue
+                };  
+            if((freshDesk[i].id > 22226) && (freshDesk[i].id < 22287)){
+                    await api.post("/ticket/new", {
+                        "email": freshDesk[i].cc_emails,
+                        "name": freshDesk[i].subject,
+                        "subject": freshDesk[i].id,
+                        "description": freshDesk[i].id,
+                        "id": freshDesk[i].id
+                    });       
+                };      
+            };
+            window.location.reload()
     };
     console.log(freshDesk)
-
-    //post tickets to destiny freshDesk
-    function handlePostOnFreshDesk(){
-        axios.post("https://loupen-dev.freshdesk.com/api/v2/tickets", {
-            email: "teste@teste.com",
-            subject: "ticket teste",
-            description: "descrição teste"
-    }, {
-            
-                    headers: {
-                        Authorization: "Basic TTVIeXYxWWJrajhpd0tjQU1Mbmk6WA",   
-                    }
-                });
-                window.alert("posted")
-    }
-    
 
     return ( 
         <section className="tickets">
@@ -100,7 +86,6 @@ export function Tickets() {
                 <h1>Loupen Tickets</h1>
                 <Link to="/new-ticket" className="create-a-ticket"><h3 className="create-a-ticket">New ticket</h3></Link>
                 <button onClick={freshToDataBasePost} className="update-and-import">Uptade and import tickets</button>
-                <button onClick={handlePostOnFreshDesk} className="update-and-import">Send all tickets to FreshDesk</button>
             </div>
             
         </section>

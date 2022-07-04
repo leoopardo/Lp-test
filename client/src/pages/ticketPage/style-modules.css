@@ -20,5 +20,31 @@
 .ticket-buttons{
     width: 800px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+}
+.delete-button{
+    height: 40px;
+    width: 100px;
+    border: 0;
+    font-size: 25px;
+    font-weight: 600;
+    background-color: rgb(134, 2, 2);
+    color: aliceblue;
+}
+.delete-button:hover{
+    background-color: rgba(128, 1, 1, 0.459);
+}
+
+.post-button{
+    height: 5=60px;
+    width: 200px;
+    border: 0;
+    font-size: 22px;
+    font-weight: 600;
+    background-color:#013c4e;
+    color: aliceblue;
+}
+
+.post-button:hover{
+    background-color: #013c4ea4;
 }

@@ -9,7 +9,8 @@ router.post("/new", async (req, res) =>{
             email: req.body.email,
             name: req.body.name,
             subject: req.body.subject,
-            description: req.body.description
+            description: req.body.description,
+            id: req.body.id
         });
         res.status(200).json(newTicket)
     }catch(err){
